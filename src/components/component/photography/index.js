@@ -1,5 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 
+import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
+import {
+  DIMENSIONS,
+  NAV_GALLERY_BUTTON,
+} from "../../../globalStyles/constants";
+
+import Photo0Text from "./0/text";
+import Photo0Image from "./0/image";
 import Photo1Text from "./1/text";
 import Photo1Image from "./1/image";
 import Photo2Text from "./2/text";
@@ -22,8 +31,16 @@ import Photo10Text from "./10/text";
 import Photo10Image from "./10/image";
 
 const Photography = () => {
+  const btnStyle = {
+    height: "18px",
+    width: "18px",
+    color: "black",
+    paddingTop: "3px",
+  };
   return (
     <div>
+      <Photo0Text />
+      <Photo0Image />
       <Photo1Text />
       <Photo1Image />
       <Photo2Text />
@@ -44,8 +61,40 @@ const Photography = () => {
       <Photo9Image />
       <Photo10Text />
       <Photo10Image />
+      <div>
+        <ButtonUp>
+          <VscChevronUp style={btnStyle} />
+        </ButtonUp>
+        <ButtonDown>
+          <VscChevronDown style={btnStyle} />
+        </ButtonDown>
+      </div>
     </div>
   );
 };
+
+const ButtonUp = styled.button`
+  cursor: pointer;
+  position: absolute;
+  top: 250vh;
+  left: ${DIMENSIONS.leftColumnWidth};
+  transform: translate(0%, -100%);
+  border: none;
+  height: 60px;
+  width: 45px;
+  background-color: ${NAV_GALLERY_BUTTON.btnBckgColor};
+`;
+
+const ButtonDown = styled.button`
+  cursor: pointer;
+  position: absolute;
+  top: 250vh;
+  left: ${DIMENSIONS.leftColumnWidth};
+  transform: translate(-100%, 0%);
+  border: none;
+  height: 60px;
+  width: 45px;
+  background-color: ${NAV_GALLERY_BUTTON.btnBckgColor};
+`;
 
 export default Photography;

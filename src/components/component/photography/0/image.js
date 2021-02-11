@@ -8,7 +8,7 @@ const Image = () => {
     <>
       <Wrapper>
         <ImageDiv>
-          <Photo src="https://res.cloudinary.com/dldqebddc/image/upload/v1612820353/mathieutranchida.io/photos/MathieuTranchidaWeb-4_ztu3fj.jpg" />
+          <Photo src="https://res.cloudinary.com/dldqebddc/image/upload/v1612820353/mathieutranchida.io/photos/MathieuTranchidaWeb-8_rqzaon.jpg" />
         </ImageDiv>
       </Wrapper>
     </>
@@ -16,7 +16,7 @@ const Image = () => {
 };
 
 const Wrapper = styled.div`
-  display: none;
+  /* display: none; */
   position: ${PHOTO_CONSTANTS_IMAGE.positionWrapper};
   width: ${PHOTO_CONSTANTS_IMAGE.widthWrapper};
   height: ${PHOTO_CONSTANTS_IMAGE.heightWrapper};

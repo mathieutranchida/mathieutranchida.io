@@ -90,3 +90,7 @@ export const CONTACT_CONSTANTS = {
   rightWrapper: WEB_CONSTANTS_DEMO.rightWrapper,
   formMaxWidth: "50vw",
 };
+
+export const NAV_GALLERY_BUTTON = {
+  btnBckgColor: "#e2e2e2",
+};

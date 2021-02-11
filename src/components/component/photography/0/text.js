@@ -7,29 +7,24 @@ const Text = () => {
   return (
     <>
       <Wrapper>
-        <Title>Bye Bye Ronin</Title>
+        <Title>Appollo</Title>
         <Paragraph>
-          After a long day, Remco and Titouan decided to shoot some lifestyle
-          shots for the movie. As they lined up, I had this idea to put Remco
-          inside Titouan’s arm. Turned out to be one of my best pictures of the
-          whole project.
+          I dreamed of taking this shot for more than two years. It took a lot
+          of planning and five tries to get the a full moon on top of the
+          Montreal’s Olympic Stadium at the right angle with a clear sky.
         </Paragraph>
         <Paragraph>
-          It was also my first printed publication in the great ski magazine
-          “The Ski Journal”. As a kid, I dreamed of gettting published in that
-          magazine. Aftter 5 years of hard work, I am really proud to be in such
-          a great piece.
+          In August 2020, I shot this on a 24mm lens at 2AM. The photo is
+          composited of two pictures, one with the correct exposure for the moon
+          and the other for the tower. The moon wasn’t moved from it’s original
+          position. Super proud of the result.
         </Paragraph>
         <Detail>
-          <ParagraphStrong>Athletes:</ParagraphStrong> Remco Kayser | Titouan
-          Bessire
+          <ParagraphStrong>Location:</ParagraphStrong> Montreal’s Olympic
+          Stadium
         </Detail>
         <Detail>
-          <ParagraphStrong>Project:</ParagraphStrong> From Switzerland with Love
-        </Detail>
-        <Detail>
-          <ParagraphStrong>Publication:</ParagraphStrong> The Ski Journal |
-          Issue One, Page 2 | 2020
+          <ParagraphStrong>Project:</ParagraphStrong> Just for fun
         </Detail>
       </Wrapper>
     </>
@@ -37,7 +32,7 @@ const Text = () => {
 };
 
 const Wrapper = styled.div`
-  display: none;
+  /* display: none; */
   position: ${TXT_CONSTANTS.position};
   top: ${TXT_CONSTANTS.topPhoto};
   max-width: ${TXT_CONSTANTS.maxWidth};
