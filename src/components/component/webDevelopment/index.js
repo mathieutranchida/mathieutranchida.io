@@ -168,7 +168,6 @@ const WebDevelopment = () => {
                 return <TextParagraph key={index}>{para}</TextParagraph>;
               })}
               {slide.text.details.map((detail, index) => {
-                console.log(detail);
                 return (
                   <TextDetail key={index}>
                     <TextParagraphStrong>{detail[0]}</TextParagraphStrong>

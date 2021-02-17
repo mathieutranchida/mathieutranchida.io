@@ -1,7 +1,3 @@
-export const LEFT_BG_COLORS = {
-  homePage: "#b4c1bf",
-};
-
 export const DIMENSIONS = {
   leftColumnWidth: "40vw",
   leftColumnHeight: "100vh",
