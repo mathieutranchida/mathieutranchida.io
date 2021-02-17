@@ -9,7 +9,7 @@ import {
   TXT_CONSTANTS,
 } from "../../../globalStyles/constants";
 
-import "./photography.css";
+import "../style.css";
 
 const slides = [
   {

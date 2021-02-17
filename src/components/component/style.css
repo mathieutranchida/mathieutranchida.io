@@ -2,11 +2,15 @@
   display: none;
 }
 
+.design-slide {
+  display: none;
+}
+
 .fade-animation {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 0.5s;
+  -webkit-animation-duration: 0.8s;
   animation-name: fade;
-  animation-duration: 0.5s;
+  animation-duration: 0.8s ease-in-out;
 }
 
 @-webkit-keyframes fade {

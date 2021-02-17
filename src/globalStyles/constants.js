@@ -94,3 +94,10 @@ export const CONTACT_CONSTANTS = {
 export const NAV_GALLERY_BUTTON = {
   btnBckgColor: "#e2e2e2",
 };
+
+export const SLIDE_BTN_STYLE = {
+  height: "18px",
+  width: "18px",
+  color: "black",
+  paddingTop: "3px",
+};
