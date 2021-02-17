@@ -21,7 +21,7 @@ const Home = () => {
         <Div>
           <WebDevelopment />
         </Div>
-        <Div style={{ border: "1px solid red" }}>
+        <Div>
           <Photography />
         </Div>
         <Div>
