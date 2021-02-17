@@ -129,9 +129,9 @@ const Design = () => {
       >
         <VscChevronDown style={btnStyle} />
       </ButtonDown>
-      {slides.map((slide) => {
+      {slides.map((slide, index) => {
         return (
-          <div className="design-slide fade-animation">
+          <div className="design-slide fade-animation" key={index}>
             <ImageWrapper>
               <ImageDiv>
                 <Image src={slide.image} alt={slide.text.title} />
@@ -139,12 +139,12 @@ const Design = () => {
             </ImageWrapper>
             <TextWrapper>
               <TextTitle>{slide.text.title}</TextTitle>
-              {slide.text.paragraph.map((para) => {
-                return <TextParagraph>{para}</TextParagraph>;
+              {slide.text.paragraph.map((para, index) => {
+                return <TextParagraph key={index}>{para}</TextParagraph>;
               })}
-              {slide.text.details.map((detail) => {
+              {slide.text.details.map((detail, index) => {
                 return (
-                  <TextDetail>
+                  <TextDetail key={index}>
                     <TextParagraphStrong>{detail[0]}</TextParagraphStrong>
                     {detail[1]}
                   </TextDetail>
