@@ -14,21 +14,6 @@ import "../style.css";
 const slides = [
   {
     image:
-      "https://res.cloudinary.com/dldqebddc/image/upload/v1612820353/mathieutranchida.io/photos/MathieuTranchidaWeb-8_rqzaon.jpg",
-    text: {
-      title: "Appollo",
-      paragraph: [
-        "I dreamed of taking this shot for more than two years. It took a lot of planning and five tries to get the a full moon on top of the Montreal’s Olympic Stadium at the right angle with a clear sky.",
-        "In August 2020, I shot this on a 24mm lens at 2AM. The photo is composited of two pictures, one with the correct exposure for the moon and the other for the tower. The moon wasn’t moved from it’s original position. Super proud of the result.",
-      ],
-      details: [
-        ["Location:", " Montreal’s Olympic Stadium"],
-        ["Project:", " Just for fun"],
-      ],
-    },
-  },
-  {
-    image:
       "https://res.cloudinary.com/dldqebddc/image/upload/v1612820352/mathieutranchida.io/photos/MathieuTranchidaWeb-5_jlojlc.jpg",
     text: {
       title: "Muraille stunt",
@@ -239,6 +224,7 @@ const Photography = () => {
 
   return (
     <div>
+      <Header>./Photography</Header>
       <ButtonUp
         onClick={() => {
           minusSlides();
@@ -281,6 +267,15 @@ const Photography = () => {
     </div>
   );
 };
+
+const Header = styled.div`
+  position: ${PHOTO_CONSTANTS_IMAGE.positionWrapper};
+  top: calc(${PHOTO_CONSTANTS_IMAGE.topWrapper} + 80px);
+  right: -55px;
+  transform: rotate(90deg);
+  text-transform: uppercase;
+  font-size: 15pt;
+`;
 
 const TextWrapper = styled.div`
   position: ${TXT_CONSTANTS.position};

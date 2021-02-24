@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,55 +19,152 @@ const backgroundColors = {
 };
 
 const Home = () => {
-  let pageRef = useRef(null);
+  // let pageRef = useRef(null);
+  // let coverRef = useRef(null);
+  // let coverBlurRef = useRef(null);
 
-  useEffect(() => {
-    gsap.to(pageRef, {
-      backgroundColor: backgroundColors.contact,
-      ease: "none",
-      scrollTrigger: {
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-      },
-    });
-  });
+  // useEffect(() => {
+  //   gsap.to(pageRef, {
+  //     backgroundColor: backgroundColors.contact,
+  //     ease: "none",
+  //     scrollTrigger: {
+  //       start: "top top",
+  //       end: "bottom bottom",
+  //       scrub: true,
+  //     },
+  //   });
+
+  //   gsap.to(coverRef, {
+  //     backgroundColor: backgroundColors.contact,
+  //     ease: "none",
+  //     scrollTrigger: {
+  //       start: "top top",
+  //       end: "bottom bottom",
+  //       scrub: true,
+  //     },
+  //   });
+
+  //   gsap.fromTo(
+  //     coverBlurRef,
+  //     {
+  //       background: `linear-gradient( 180deg,
+  //       transparent 0%,
+  //       ${backgroundColors.homepage} 100%
+  //     )`,
+  //     },
+  //     {
+  //       background: `linear-gradient(
+  //         180deg,
+  //       transparent 0%,
+  //       ${backgroundColors.contact} 100%
+  //     )`,
+  //       ease: "none",
+  //       scrollTrigger: {
+  //         start: "top top",
+  //         end: "bottom bottom",
+  //         scrub: true,
+  //       },
+  //     }
+  //   );
+  // });
 
   return (
     <>
-      <Wrapper
-        ref={(e) => {
-          pageRef = e;
-        }}
+      <LeftColumn
+      // ref={(e) => {
+      //   pageRef = e;
+      // }}
       >
-        <FixedComponents />
-        <Div>
+        <CoverTop></CoverTop>
+        <CoverTopBlur></CoverTopBlur>
+        <CoverBottom
+        // ref={(e) => {
+        //   coverRef = e;
+        // }}
+        >
+          <CoverBottomBlur
+          // ref={(e) => {
+          //   coverBlurRef = e;
+          // }}
+          >
+            <FixedComponents />
+          </CoverBottomBlur>
+        </CoverBottom>
+        <Section id="section1">
           <Homepage />
-        </Div>
-        <Div>
+        </Section>
+        <Section id="section2">
           <WebDevelopment />
-        </Div>
-        <Div>
+        </Section>
+        <Section id="section3">
           <Photography />
-        </Div>
-        <Div>
+        </Section>
+        <Section id="section4">
           <Design />
-        </Div>
-        <Div>
+        </Section>
+        <Section id="section5">
           <Contact />
-        </Div>
-      </Wrapper>
+        </Section>
+      </LeftColumn>
     </>
   );
 };
 
-const Wrapper = styled.div`
+const LeftColumn = styled.div`
   width: ${DIMENSIONS.leftColumnWidth};
   height: ${DIMENSIONS.totalHeight};
   background-color: ${backgroundColors.homepage};
 `;
 
-const Div = styled.div`
+const CoverTop = styled.div`
+  width: ${DIMENSIONS.leftColumnWidth};
+  height: 7vh;
+  position: fixed;
+  top: 0vh;
+  left: 0;
+  background-color: ${backgroundColors.homepage};
+  z-index: 500;
+`;
+
+const CoverTopBlur = styled.div`
+  width: ${DIMENSIONS.leftColumnWidth};
+  height: 5vh;
+  position: fixed;
+  top: 7vh;
+  left: 0;
+  z-index: 500;
+  background: linear-gradient(
+    0deg,
+    transparent 0%,
+    ${backgroundColors.homepage} 100%
+  );
+`;
+
+const CoverBottom = styled.div`
+  width: ${DIMENSIONS.leftColumnWidth};
+  height: 33vh;
+  position: fixed;
+  top: 67vh;
+  left: 0;
+  background-color: ${backgroundColors.homepage};
+  z-index: 500;
+`;
+
+const CoverBottomBlur = styled.div`
+  width: ${DIMENSIONS.leftColumnWidth};
+  height: 5vh;
+  position: fixed;
+  top: 62vh;
+  left: 0;
+  z-index: 500;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    ${backgroundColors.homepage} 100%
+  );
+`;
+
+const Section = styled.section`
   height: 100vh;
 `;
 
