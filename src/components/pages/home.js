@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import { DIMENSIONS } from "../../globalStyles/constants";
+import { DIMENSIONS, TXT } from "../../globalStyles/constants";
 import FixedComponents from "../component/fixedComponents/index";
 import Homepage from "../component/homepage/index";
 import WebDevelopment from "../component/webDevelopment/index";
@@ -19,74 +19,72 @@ const backgroundColors = {
 };
 
 const Home = () => {
-  // let pageRef = useRef(null);
-  // let coverRef = useRef(null);
-  // let coverBlurRef = useRef(null);
+  let bulletRef = useRef(null);
+  let introRef = useRef(null);
+  let sectionRef = useRef(null);
 
-  // useEffect(() => {
-  //   gsap.to(pageRef, {
-  //     backgroundColor: backgroundColors.contact,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       start: "top top",
-  //       end: "bottom bottom",
-  //       scrub: true,
-  //     },
-  //   });
-
-  //   gsap.to(coverRef, {
-  //     backgroundColor: backgroundColors.contact,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       start: "top top",
-  //       end: "bottom bottom",
-  //       scrub: true,
-  //     },
-  //   });
-
-  //   gsap.fromTo(
-  //     coverBlurRef,
-  //     {
-  //       background: `linear-gradient( 180deg,
-  //       transparent 0%,
-  //       ${backgroundColors.homepage} 100%
-  //     )`,
-  //     },
-  //     {
-  //       background: `linear-gradient(
-  //         180deg,
-  //       transparent 0%,
-  //       ${backgroundColors.contact} 100%
-  //     )`,
-  //       ease: "none",
-  //       scrollTrigger: {
-  //         start: "top top",
-  //         end: "bottom bottom",
-  //         scrub: true,
-  //       },
-  //     }
-  //   );
-  // });
+  // bullet point animation
+  useEffect(() => {
+    gsap.set(bulletRef, { opacity: 0 });
+    gsap.to(bulletRef, {
+      opacity: 1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: introRef,
+        start: "top top",
+        end: "bottom-=250 top",
+        scrub: true,
+      },
+    });
+    gsap.to(bulletRef, {
+      ease: "none",
+      y: "115",
+      scrollTrigger: {
+        trigger: sectionRef,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+        markers: true,
+      },
+    });
+  });
 
   return (
     <>
-      <LeftColumn
-      // ref={(e) => {
-      //   pageRef = e;
-      // }}
-      >
+      {/* Intro content divider for gsap bullet point animation triggers*/}
+      <div
+        style={{
+          position: "absolute",
+          top: "0px",
+          width: "100vw",
+          height: "100vh",
+        }}
+        ref={(e) => {
+          introRef = e;
+        }}
+      ></div>
+      {/* Section content divider for gsap bullet point animation triggers*/}
+      <div
+        style={{
+          position: "absolute",
+          top: "100vh",
+          width: "100vw",
+          height: "400vh",
+        }}
+        ref={(e) => {
+          sectionRef = e;
+        }}
+      ></div>
+      <LeftColumn>
+        <Bullet
+          ref={(e) => {
+            bulletRef = e;
+          }}
+        ></Bullet>
         <CoverTop></CoverTop>
         <CoverTopBlur></CoverTopBlur>
-        <CoverBottom
-        // ref={(e) => {
-        //   coverRef = e;
-        // }}
-        >
-          <CoverBottomBlur
-          // ref={(e) => {
-          //   coverBlurRef = e;
-          // }}
-          >
+        <CoverBottom>
+          <CoverBottomBlur>
             <FixedComponents />
           </CoverBottomBlur>
         </CoverBottom>
@@ -114,6 +112,18 @@ const LeftColumn = styled.div`
   width: ${DIMENSIONS.leftColumnWidth};
   height: ${DIMENSIONS.totalHeight};
   background-color: ${backgroundColors.homepage};
+`;
+
+const Bullet = styled.div`
+  background-color: ${TXT.color};
+  height: 12px;
+  width: 12px;
+  border-radius: 100%;
+  position: absolute;
+  top: 70.64vh;
+  left: 5.6vw;
+  z-index: 1000;
+  position: fixed;
 `;
 
 const CoverTop = styled.div`
