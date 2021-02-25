@@ -4,21 +4,43 @@ import emailjs from "emailjs-com";
 import { gsap } from "gsap";
 
 import { CONTACT_CONSTANTS } from "../../../globalStyles/constants";
+import { RiLoaderLine } from "react-icons/ri";
 
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleClick = (event) => {
-    gsap.to(messageArea, {
+  let formArea = useRef(null);
+  let messageArea = useRef(null);
+  let loadingSpinner = useRef(null);
+  let confirmationMessage = useRef(null);
+
+  const handleClick = () => {
+    gsap.to(formArea, {
       duration: 1,
-      height: "15px",
-      ease: "power2",
+      delay: 0.5,
+      opacity: 0,
+      userSelect: "none",
+      zIndex: -1,
+    });
+    gsap.to(loadingSpinner, {
+      duration: 0.5,
+      delay: 1.5,
+      opacity: 1,
+    });
+    gsap.to(loadingSpinner, {
+      duration: 0.5,
+      delay: 3.5,
+      opacity: 0,
+    });
+    gsap.to(confirmationMessage, {
+      duration: 0.5,
+      delay: 4,
+      opacity: 1,
+      zIndex: 1,
     });
   };
-
-  let messageArea = useRef(null);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -42,82 +64,110 @@ const Contact = () => {
         }
       );
   };
+
   return (
-    <Wrapper>
-      <Main>
-        <Form className="contact-form" onSubmit={sendEmail}>
-          <Title>To: mathieu.tranchida@gmail.com</Title>
-          <Input type="hidden" name="contact_number" />
-          <Div>
-            <Input
-              type="text"
-              name="user_name"
-              placeholder="*name"
-              value={name}
-              onChange={(ev) => {
-                setName(ev.target.value);
-              }}
+    <div>
+      <FormWrapper>
+        <Main>
+          <Form
+            className="contact-form"
+            ref={(e) => {
+              formArea = e;
+            }}
+            onSubmit={sendEmail}
+          >
+            <Title>To: mathieu.tranchida@gmail.com</Title>
+            <Input type="hidden" name="contact_number" />
+            <Div>
+              <Input
+                type="text"
+                name="user_name"
+                placeholder="*name"
+                value={name}
+                onChange={(ev) => {
+                  setName(ev.target.value);
+                }}
+              />
+            </Div>
+            <Div>
+              <Input
+                type="email"
+                name="user_email"
+                placeholder="*email"
+                value={email}
+                onChange={(ev) => {
+                  setEmail(ev.target.value);
+                }}
+              />
+            </Div>
+            <Div>
+              <Textarea
+                name="message"
+                value={message}
+                placeholder="*message"
+                ref={(e) => {
+                  messageArea = e;
+                }}
+                onChange={(ev) => {
+                  setMessage(ev.target.value);
+                  gsap.to(messageArea, {
+                    duration: 1,
+                    height: "150px",
+                    ease: "power2",
+                  });
+                }}
+                onSelect={() => {
+                  gsap.to(messageArea, {
+                    duration: 1,
+                    height: "150px",
+                    ease: "power2",
+                  });
+                }}
+              />
+              <TextareaReducedMotion
+                name="message"
+                value={message}
+                placeholder="*message"
+                onChange={(ev) => {
+                  setMessage(ev.target.value);
+                }}
+              />
+            </Div>
+            <Button
+              type="submit"
+              value="send"
+              disabled={!name || !email.includes("@") || !message}
+              variant="contained"
+              color="primary"
+              onClick={handleClick}
             />
-          </Div>
-          <Div>
-            <Input
-              type="email"
-              name="user_email"
-              placeholder="*email"
-              value={email}
-              onChange={(ev) => {
-                setEmail(ev.target.value);
-              }}
-            />
-          </Div>
-          <Div>
-            <Textarea
-              name="message"
-              value={message}
-              placeholder="*message"
-              onChange={(ev) => {
-                setMessage(ev.target.value);
-                gsap.to(messageArea, {
-                  duration: 1,
-                  height: "150px",
-                  ease: "power2",
-                });
-              }}
-              ref={(e) => {
-                messageArea = e;
-              }}
-              onSelect={() => {
-                gsap.to(messageArea, {
-                  duration: 1,
-                  height: "150px",
-                  ease: "power2",
-                });
-              }}
-            />
-            <TextareaReducedMotion
-              name="message"
-              value={message}
-              placeholder="*message"
-              onChange={(ev) => {
-                setMessage(ev.target.value);
-              }}
-            />
-          </Div>
-          <Button
-            type="submit"
-            value="send"
-            disabled={!name || !email.includes("@") || !message}
-            variant="contained"
-            color="primary"
-            onClick={handleClick}
-          />
-        </Form>
-      </Main>
-    </Wrapper>
+          </Form>
+        </Main>
+      </FormWrapper>
+      <LoadingWrapper
+        ref={(e) => {
+          loadingSpinner = e;
+        }}
+      >
+        <LoadingLogoDiv>
+          <SpinningLoader />
+        </LoadingLogoDiv>
+      </LoadingWrapper>
+      <ConfirmationWrapper
+        ref={(e) => {
+          confirmationMessage = e;
+        }}
+      >
+        <Confirmation>
+          Your message has been sent successfully! I will come back to you as
+          soon as I have the chance.
+        </Confirmation>
+      </ConfirmationWrapper>
+    </div>
   );
 };
 
-const Wrapper = styled.div`
+const FormWrapper = styled.div`
   position: ${CONTACT_CONSTANTS.positionWrapper};
   width: ${CONTACT_CONSTANTS.widthWrapper};
   height: ${CONTACT_CONSTANTS.heightWrapper};
@@ -220,6 +270,57 @@ const Button = styled.input`
   &:hover:not([disabled]) {
     cursor: pointer;
   }
+`;
+
+const LoadingWrapper = styled.div`
+  position: ${CONTACT_CONSTANTS.positionWrapper};
+  width: ${CONTACT_CONSTANTS.widthWrapper};
+  height: ${CONTACT_CONSTANTS.heightWrapper};
+  top: ${CONTACT_CONSTANTS.topWrapper};
+  right: ${CONTACT_CONSTANTS.rightWrapper};
+  opacity: 0;
+  z-index: -1;
+`;
+
+const LoadingLogoDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25vh 2vw 2vw 2vw;
+`;
+
+const SpinningLoader = styled(RiLoaderLine)`
+  height: 30px;
+  width: 30px;
+  color: black;
+  animation-duration: 1500ms;
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+const ConfirmationWrapper = styled.div`
+  position: ${CONTACT_CONSTANTS.positionWrapper};
+  width: ${CONTACT_CONSTANTS.widthWrapper};
+  height: ${CONTACT_CONSTANTS.heightWrapper};
+  top: ${CONTACT_CONSTANTS.topWrapper};
+  right: ${CONTACT_CONSTANTS.rightWrapper};
+  opacity: 0;
+  z-index: -1;
+`;
+
+const Confirmation = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25vh 2vw 2vw 2vw;
 `;
 
 export default Contact;
