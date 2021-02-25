@@ -102,10 +102,7 @@ const Menu = () => {
 };
 
 const Wrapper = styled.div`
-  position: fixed;
-  top: 70vh;
   max-width: ${TXT.width};
-  margin: ${TXT.margin};
   font-weight: 600;
   font-size: 18pt;
   color: ${TXT.color};

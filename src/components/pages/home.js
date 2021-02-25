@@ -10,6 +10,7 @@ import WebDevelopment from "../component/webDevelopment/index";
 import Photography from "../component/photography/index";
 import Design from "../component/design/index";
 import Contact from "../component/contact/index";
+import Menu from "../component/fixedComponents/menu";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,16 +77,21 @@ const Home = () => {
         }}
       ></div>
       <LeftColumn>
-        <Bullet
-          ref={(e) => {
-            bulletRef = e;
-          }}
-        ></Bullet>
         <CoverTop></CoverTop>
         <CoverTopBlur></CoverTopBlur>
         <CoverBottom>
           <CoverBottomBlur>
             <FixedComponents />
+            <FixedMenuDiv>
+              <Bullet
+                ref={(e) => {
+                  bulletRef = e;
+                }}
+              ></Bullet>
+              <div style={{ gridColumn: "2/3" }}>
+                <Menu />
+              </div>
+            </FixedMenuDiv>
           </CoverBottomBlur>
         </CoverBottom>
         <Section id="section1">
@@ -112,18 +118,6 @@ const LeftColumn = styled.div`
   width: ${DIMENSIONS.leftColumnWidth};
   height: ${DIMENSIONS.totalHeight};
   background-color: ${backgroundColors.homepage};
-`;
-
-const Bullet = styled.div`
-  background-color: ${TXT.color};
-  height: 12px;
-  width: 12px;
-  border-radius: 100%;
-  position: absolute;
-  top: 70.64vh;
-  left: 5.6vw;
-  z-index: 1000;
-  position: fixed;
 `;
 
 const CoverTop = styled.div`
@@ -172,6 +166,24 @@ const CoverBottomBlur = styled.div`
     transparent 0%,
     ${backgroundColors.homepage} 100%
   );
+`;
+
+const FixedMenuDiv = styled.div`
+  position: fixed;
+  top: 70vh;
+  margin-left: calc(7vw - 29px);
+  display: grid;
+  grid-template-columns: 12px 350px;
+  grid-column-gap: 17px;
+`;
+
+const Bullet = styled.div`
+  background-color: ${TXT.color};
+  height: 11px;
+  width: 11px;
+  border-radius: 100%;
+  z-index: 1000;
+  margin-top: 9px;
 `;
 
 const Section = styled.section`
