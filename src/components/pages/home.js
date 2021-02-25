@@ -137,10 +137,15 @@ const CoverTopBlur = styled.div`
   top: 7vh;
   left: 0;
   z-index: 500;
+  background: -webkit-linear-gradient(
+    to top,
+    rgba(180, 193, 191, 0) 0%,
+    rgba(180, 193, 191, 1) 100%
+  );
   background: linear-gradient(
-    0deg,
-    transparent 0%,
-    ${backgroundColors.homepage} 100%
+    to top,
+    rgba(180, 193, 191, 0) 0%,
+    rgba(180, 193, 191, 1) 100%
   );
 `;
 
@@ -162,9 +167,14 @@ const CoverBottomBlur = styled.div`
   left: 0;
   z-index: 500;
   background: linear-gradient(
-    180deg,
-    transparent 0%,
-    ${backgroundColors.homepage} 100%
+    to bottom,
+    rgba(180, 193, 191, 0) 0%,
+    rgba(180, 193, 191, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    to bottom,
+    rgba(180, 193, 191, 0) 0%,
+    rgba(180, 193, 191, 1) 100%
   );
 `;
 
