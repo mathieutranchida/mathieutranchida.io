@@ -140,7 +140,6 @@ const WebDevelopment = () => {
 
   return (
     <div>
-      <Header>./Web_Development</Header>
       <ButtonUp
         onClick={() => {
           minusSlides();
@@ -184,15 +183,6 @@ const WebDevelopment = () => {
     </div>
   );
 };
-
-const Header = styled.div`
-  position: ${WEB_CONSTANTS_DEMO.positionWrapper};
-  top: calc(${WEB_CONSTANTS_DEMO.topWrapper} + 103px);
-  right: -77px;
-  transform: rotate(90deg);
-  text-transform: uppercase;
-  font-size: 15pt;
-`;
 
 const VideoWrapper = styled.div`
   position: ${WEB_CONSTANTS_DEMO.positionWrapper};

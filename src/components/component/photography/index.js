@@ -224,7 +224,6 @@ const Photography = () => {
 
   return (
     <div>
-      <Header>./Photography</Header>
       <ButtonUp
         onClick={() => {
           minusSlides();
@@ -267,15 +266,6 @@ const Photography = () => {
     </div>
   );
 };
-
-const Header = styled.div`
-  position: ${PHOTO_CONSTANTS_IMAGE.positionWrapper};
-  top: calc(${PHOTO_CONSTANTS_IMAGE.topWrapper} + 80px);
-  right: -55px;
-  transform: rotate(90deg);
-  text-transform: uppercase;
-  font-size: 15pt;
-`;
 
 const TextWrapper = styled.div`
   position: ${TXT_CONSTANTS.position};
