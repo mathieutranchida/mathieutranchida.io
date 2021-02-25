@@ -45,7 +45,6 @@ const Home = () => {
         start: "top top",
         end: "bottom bottom",
         scrub: true,
-        markers: true,
       },
     });
   });
