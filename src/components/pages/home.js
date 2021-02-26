@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import { DIMENSIONS, TXT } from "../../globalStyles/constants";
+import { DIMENSIONS, TXT, BACKGROUND } from "../../globalStyles/constants";
 import FixedComponents from "../component/fixedComponents/index";
 import Homepage from "../component/homepage/index";
 import WebDevelopment from "../component/webDevelopment/index";
@@ -11,13 +11,9 @@ import Photography from "../component/photography/index";
 import Design from "../component/design/index";
 import Contact from "../component/contact/index";
 import Menu from "../component/fixedComponents/menu";
+import HelpBtn from "../component/helpBtn/index";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const backgroundColors = {
-  homepage: "#b4c1bf",
-  contact: "#424242",
-};
 
 const Home = () => {
   let bulletRef = useRef(null);
@@ -76,6 +72,7 @@ const Home = () => {
         }}
       ></div>
       <LeftColumn>
+        <HelpBtn />
         <CoverTop></CoverTop>
         <CoverTopBlur></CoverTopBlur>
         <CoverBottom>
@@ -116,7 +113,7 @@ const Home = () => {
 const LeftColumn = styled.div`
   width: ${DIMENSIONS.leftColumnWidth};
   height: ${DIMENSIONS.totalHeight};
-  background-color: ${backgroundColors.homepage};
+  background-color: rgb(${BACKGROUND.home});
 `;
 
 const CoverTop = styled.div`
@@ -125,7 +122,7 @@ const CoverTop = styled.div`
   position: fixed;
   top: 0vh;
   left: 0;
-  background-color: ${backgroundColors.homepage};
+  background-color: rgb(${BACKGROUND.home});
   z-index: 500;
 `;
 
@@ -138,48 +135,48 @@ const CoverTopBlur = styled.div`
   z-index: 500;
   background: -webkit-linear-gradient(
     to top,
-    rgba(180, 193, 191, 0) 0%,
-    rgba(180, 193, 191, 1) 100%
+    rgba(${BACKGROUND.home}, 0) 0%,
+    rgba(${BACKGROUND.home}, 1) 100%
   );
   background: linear-gradient(
     to top,
-    rgba(180, 193, 191, 0) 0%,
-    rgba(180, 193, 191, 1) 100%
+    rgba(${BACKGROUND.home}, 0) 0%,
+    rgba(${BACKGROUND.home}, 1) 100%
   );
 `;
 
 const CoverBottom = styled.div`
   width: ${DIMENSIONS.leftColumnWidth};
-  height: 33vh;
+  height: 265px;
   position: fixed;
-  top: 67vh;
+  bottom: 0px;
   left: 0;
-  background-color: ${backgroundColors.homepage};
+  background-color: rgb(${BACKGROUND.home});
   z-index: 500;
 `;
 
 const CoverBottomBlur = styled.div`
   width: ${DIMENSIONS.leftColumnWidth};
-  height: 5vh;
+  height: 50px;
   position: fixed;
-  top: 62vh;
+  bottom: 265px;
   left: 0;
   z-index: 500;
   background: linear-gradient(
     to bottom,
-    rgba(180, 193, 191, 0) 0%,
-    rgba(180, 193, 191, 1) 100%
+    rgba(${BACKGROUND.home}, 0) 0%,
+    rgba(${BACKGROUND.home}, 1) 100%
   );
   background: -webkit-linear-gradient(
     to bottom,
-    rgba(180, 193, 191, 0) 0%,
-    rgba(180, 193, 191, 1) 100%
+    rgba(${BACKGROUND.home}, 0) 0%,
+    rgba(${BACKGROUND.home}, 1) 100%
   );
 `;
 
 const FixedMenuDiv = styled.div`
   position: fixed;
-  top: 70vh;
+  bottom: 90px;
   margin-left: calc(7vw - 29px);
   display: grid;
   grid-template-columns: 12px 350px;

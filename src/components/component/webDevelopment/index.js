@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import ReactPlayer from "react-player/youtube";
 
-import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
+import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 import {
   WEB_CONSTANTS_DEMO,
   TXT_CONSTANTS,
@@ -140,20 +140,20 @@ const WebDevelopment = () => {
 
   return (
     <div>
-      <ButtonUp
-        onClick={() => {
-          minusSlides();
-        }}
-      >
-        <VscChevronUp style={btnStyle} />
-      </ButtonUp>
-      <ButtonDown
+      <ButtonRight
         onClick={() => {
           plusSlides();
         }}
       >
-        <VscChevronDown style={btnStyle} />
-      </ButtonDown>
+        <VscChevronRight style={btnStyle} />
+      </ButtonRight>
+      <ButtonLeft
+        onClick={() => {
+          minusSlides();
+        }}
+      >
+        <VscChevronLeft style={btnStyle} />
+      </ButtonLeft>
       {slides.map((slide, index) => {
         return (
           <div className="web-slide fade-animation" key={index}>
@@ -175,7 +175,9 @@ const WebDevelopment = () => {
                   </TextDetail>
                 );
               })}
-              <Link href={slide.link}>{slide.text.gitHubLink}</Link>
+              <Link href={slide.link} rel="noopener noreferrer" target="_blank">
+                {slide.text.gitHubLink}
+              </Link>
             </TextWrapper>
           </div>
         );
@@ -237,7 +239,7 @@ const Link = styled.a`
   cursor: pointer;
 `;
 
-const ButtonUp = styled.button`
+const ButtonRight = styled.button`
   cursor: pointer;
   position: absolute;
   top: 150vh;
@@ -251,7 +253,7 @@ const ButtonUp = styled.button`
   z-index: 1000;
 `;
 
-const ButtonDown = styled.button`
+const ButtonLeft = styled.button`
   cursor: pointer;
   position: absolute;
   top: 150vh;

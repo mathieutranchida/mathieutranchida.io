@@ -10,6 +10,11 @@ export const DIMENSIONS = {
   imageWidth: "50vw",
 };
 
+export const BACKGROUND = {
+  home: "180, 193, 191",
+  homeDarker: "160, 173, 171",
+};
+
 export const TXT = {
   color: "white",
   width: "27vw",

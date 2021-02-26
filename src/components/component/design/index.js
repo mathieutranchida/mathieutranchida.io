@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
+import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 import {
   DESIGN_CONSTANTS_IMAGE,
   TXT_CONSTANTS,
@@ -115,20 +115,20 @@ const Design = () => {
 
   return (
     <>
-      <ButtonUp
-        onClick={() => {
-          minusSlides();
-        }}
-      >
-        <VscChevronUp style={btnStyle} />
-      </ButtonUp>
-      <ButtonDown
+      <ButtonRight
         onClick={() => {
           plusSlides();
         }}
       >
-        <VscChevronDown style={btnStyle} />
-      </ButtonDown>
+        <VscChevronRight style={btnStyle} />
+      </ButtonRight>
+      <ButtonLeft
+        onClick={() => {
+          minusSlides();
+        }}
+      >
+        <VscChevronLeft style={btnStyle} />
+      </ButtonLeft>
       {slides.map((slide, index) => {
         return (
           <div className="design-slide fade-animation" key={index}>
@@ -158,7 +158,7 @@ const Design = () => {
   );
 };
 
-const ButtonUp = styled.button`
+const ButtonRight = styled.button`
   cursor: pointer;
   position: absolute;
   top: 350vh;
@@ -172,7 +172,7 @@ const ButtonUp = styled.button`
   z-index: 1000;
 `;
 
-const ButtonDown = styled.button`
+const ButtonLeft = styled.button`
   cursor: pointer;
   position: absolute;
   top: 350vh;

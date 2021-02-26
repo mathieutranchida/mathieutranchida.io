@@ -53,10 +53,10 @@ const A = styled.a`
   align-items: center;
   height: 25px;
   width: 25px;
-  transition: 300ms;
+  opacity: 0.8;
+  transition: 500ms;
   &:hover {
-    height: 28px;
-    width: 28px;
+    opacity: 1;
   }
 `;
 

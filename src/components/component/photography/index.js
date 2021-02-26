@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
+import { VscChevronRight, VscChevronLeft } from "react-icons/vsc";
 import {
   DIMENSIONS,
   NAV_GALLERY_BUTTON,
@@ -224,20 +224,20 @@ const Photography = () => {
 
   return (
     <div>
-      <ButtonUp
-        onClick={() => {
-          minusSlides();
-        }}
-      >
-        <VscChevronUp style={btnStyle} />
-      </ButtonUp>
-      <ButtonDown
+      <ButtonRight
         onClick={() => {
           plusSlides();
         }}
       >
-        <VscChevronDown style={btnStyle} />
-      </ButtonDown>
+        <VscChevronRight style={btnStyle} />
+      </ButtonRight>
+      <ButtonLeft
+        onClick={() => {
+          minusSlides();
+        }}
+      >
+        <VscChevronLeft style={btnStyle} />
+      </ButtonLeft>
       {slides.map((content, index) => {
         return (
           <div className="photo-slide fade-animation" key={index}>
@@ -320,7 +320,7 @@ const Image = styled.img`
   user-select: none;
 `;
 
-const ButtonUp = styled.button`
+const ButtonRight = styled.button`
   cursor: pointer;
   position: absolute;
   top: 250vh;
@@ -334,7 +334,7 @@ const ButtonUp = styled.button`
   z-index: 1000;
 `;
 
-const ButtonDown = styled.button`
+const ButtonLeft = styled.button`
   cursor: pointer;
   position: absolute;
   top: 250vh;
