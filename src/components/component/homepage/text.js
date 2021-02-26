@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import { TXT } from "../../../globalStyles/constants";
-import SocialMedia from "../reusables/socialMedia";
+import SocialMedia from "../reusables/socialMediaWhite";
 
 const Text = () => {
-  const socialMediaColor = "white";
   return (
     <>
       <Wrapper>
@@ -27,7 +26,7 @@ const Text = () => {
           might have!
         </Paragraph>
         <LogoDiv>
-          <SocialMedia color={socialMediaColor} />
+          <SocialMedia />
         </LogoDiv>
       </Wrapper>
     </>

@@ -3,16 +3,15 @@ import styled from "styled-components";
 
 import Text from "./text";
 import ContactForm from "./contactForm";
-import SocialMedia from "../reusables/socialMedia";
+import SocialMedia from "../reusables/socialMediaBlack";
 
 const Contact = () => {
-  const socialMediaColor = "black";
   return (
     <>
       <Text />
       <ContactForm />
       <Div>
-        <SocialMedia color={socialMediaColor} />
+        <SocialMedia />
       </Div>
     </>
   );
