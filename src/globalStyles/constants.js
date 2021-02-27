@@ -11,8 +11,8 @@ export const DIMENSIONS = {
 };
 
 export const BACKGROUND = {
-  home: "180, 193, 191",
-  homeDarker: "160, 173, 171",
+  home: "160, 173, 171",
+  homeDarker: "140, 153, 151",
 };
 
 export const TXT = {

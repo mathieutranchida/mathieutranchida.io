@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
-import { Link, scroller } from "react-scroll";
+import { scroller } from "react-scroll";
 
 import { IoHelp } from "react-icons/io5";
 import { BACKGROUND } from "../../../globalStyles/constants";
@@ -26,7 +26,7 @@ try {
     null,
     Object.defineProperty({}, "passive", {
       get: function () {
-        supportsPassive = true;
+        return (supportsPassive = true);
       },
     })
   );
@@ -53,7 +53,6 @@ function enableScroll() {
 }
 
 const Help = () => {
-  let helpButtonRef = useRef(null);
   let modalRef = useRef(null);
 
   const openModal = () => {
@@ -85,12 +84,7 @@ const Help = () => {
   return (
     <>
       <div>
-        <HelpBtn
-          ref={(e) => {
-            helpButtonRef = e;
-          }}
-          onClick={openModal}
-        >
+        <HelpBtn onClick={openModal}>
           <QuestionMark />
         </HelpBtn>
         <Modal
@@ -128,6 +122,7 @@ const HelpBtn = styled.button`
   z-index: 1;
   cursor: pointer;
   transition: 300ms ease;
+  filter: drop-shadow(0px 0px 5px rgb(180, 180, 180));
   &:hover {
     background-color: rgb(${BACKGROUND.homeDarker});
   }
@@ -135,8 +130,8 @@ const HelpBtn = styled.button`
 
 const QuestionMark = styled(IoHelp)`
   color: white;
-  height: 100%;
-  width: 100%;
+  height: 30px;
+  width: 30px;
   cursor: pointer;
 `;
 

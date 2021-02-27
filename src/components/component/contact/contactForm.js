@@ -193,17 +193,14 @@ const Form = styled.form`
 
 const Div = styled.div`
   width: 100%;
+  border-bottom: 2px solid black;
   margin-bottom: 10px;
 `;
 
 const Input = styled.input`
   width: 100%;
-  outline: none;
   border: none;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-bottom: 2px solid black;
+  outline: none;
   background-color: transparent;
   color: black;
   font-family: canada-type-gibson, sans-serif;
@@ -217,10 +214,6 @@ const Textarea = styled.textarea`
   height: 15px;
   outline: none;
   border: none;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-bottom: 2px solid black;
   background-color: transparent;
   color: black;
   font-family: canada-type-gibson, sans-serif;
@@ -238,10 +231,6 @@ const TextareaReducedMotion = styled.textarea`
   height: 150px;
   outline: none;
   border: none;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-bottom: 2px solid black;
   background-color: transparent;
   color: black;
   font-family: canada-type-gibson, sans-serif;

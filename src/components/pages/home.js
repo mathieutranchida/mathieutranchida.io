@@ -19,6 +19,7 @@ const Home = () => {
   let bulletRef = useRef(null);
   let introRef = useRef(null);
   let sectionRef = useRef(null);
+  let helpRef = useRef(null);
 
   // bullet point animation
   useEffect(() => {
@@ -41,6 +42,19 @@ const Home = () => {
         start: "top top",
         end: "bottom bottom",
         scrub: true,
+      },
+    });
+  });
+
+  // help animation
+  useEffect(() => {
+    gsap.set(helpRef, { opacity: 0 });
+    gsap.to(helpRef, {
+      duration: 1,
+      opacity: 1,
+      ease: "none",
+      scrollTrigger: {
+        start: "top+=100 top",
       },
     });
   });
@@ -72,7 +86,13 @@ const Home = () => {
         }}
       ></div>
       <LeftColumn>
-        <HelpBtn />
+        <div
+          ref={(e) => {
+            helpRef = e;
+          }}
+        >
+          <HelpBtn />
+        </div>
         <CoverTop></CoverTop>
         <CoverTopBlur></CoverTopBlur>
         <CoverBottom>
