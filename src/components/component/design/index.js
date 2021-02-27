@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
 import {
@@ -10,71 +11,6 @@ import {
 } from "../../../globalStyles/constants";
 
 import "../style.css";
-
-const slides = [
-  {
-    image:
-      "https://res.cloudinary.com/dldqebddc/image/upload/v1612977896/mathieutranchida.io/design/g13_itm5kz.jpg",
-    text: {
-      title: "Concordia Tennis Tryouts",
-      paragraph: [
-        "Concordia Tennis hired me to take a photo and make a design for their 2020 tryouts. The shoot took place in the IGA Stadium and I made the design the very next days in less than 2 hours.",
-        "The design was made using photoshop.",
-      ],
-      details: [["Athlete:", " Antoine Clement"]],
-    },
-  },
-  {
-    image:
-      "https://res.cloudinary.com/dldqebddc/image/upload/v1612977897/mathieutranchida.io/design/g12_iohwu3.jpg",
-    text: {
-      title: "CSSC Season Opener",
-      paragraph: [
-        "The Concordia Ski & Snowboard Club is one of the most popular clubs on campus with more than 500 members and +12 trips every year. Here is a design I did for the club in 2018.",
-        "The design was made using photoshop.",
-      ],
-      details: [["Project:", " Concordia Ski & Snowboard Club"]],
-    },
-  },
-  {
-    image:
-      "https://res.cloudinary.com/dldqebddc/image/upload/v1612977896/mathieutranchida.io/design/g10_spkgz2.jpg",
-    text: {
-      title: "COVID Solar System",
-      paragraph: [
-        "At the beginning of the pandemic, I was looking for small fun projects and Adobe came out with a “daily challenge”. I did a couple of these challenges and this one was one of my best.",
-        "It’s the solar system with all of its planets and their relative distance to the sun. This was entirely made using Adobe Illustrator in one day.",
-      ],
-      details: [["Project:", " Adobe Creative Program"]],
-    },
-  },
-  {
-    image:
-      "https://res.cloudinary.com/dldqebddc/image/upload/v1612977896/mathieutranchida.io/design/g5_ru3fy5.jpg",
-    text: {
-      title: "Portfolio Magazine Project",
-      paragraph: [
-        "During the pandemic and on the side of my studies, I decided to make a “fake” magazine showcasing my best photos. The magazine is made of 54 pages and divided in four categories: Skiing, Climbing, Landscape, and Lifestyle. Each page has a unique design touch.",
-        "This double page is definitely my favorite design / photo combination. It is the introduction for the climbing section. The word “climbing” is hidden and faded behind the three diving platforms. It is simple but effective!",
-        "The design was made using Adobe Photoshop with layers and masks. Made in one hour.",
-      ],
-      details: [["Project:", " Magazine portfolio"]],
-    },
-  },
-  {
-    image:
-      "https://res.cloudinary.com/dldqebddc/image/upload/v1612977896/mathieutranchida.io/design/g11_xras71.jpg",
-    text: {
-      title: "Thirsty Thursday",
-      paragraph: [
-        "Another design for an event of the Concordia Ski & Snowboard Club (CSSC). This was a Facebook banner for one of the monthly Thirsty Thursdays in 2018.",
-        "During my time at the CSSC, I did more than 20 designs for social media with different sizes (square, banners, and stories).",
-        "This design was done using Adobe Photoshop.",
-      ],
-      details: [["Project:", " Concordia Ski & Snowboard Club"]],
-    },
-  },
-];
 
 const btnStyle = {
   height: "18px",
@@ -109,6 +45,10 @@ function showSlides(n) {
 }
 
 const Design = () => {
+  const slides = useSelector(
+    (state) => state.languageReducer.state && state.languageReducer.state.design
+  );
+
   useEffect(() => {
     showSlides(slideIndex);
   }, []);

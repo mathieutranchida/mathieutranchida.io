@@ -1,11 +1,10 @@
-// import { en as state } from "../../languages";
+import { en as state } from "../../languages/en";
 
 const initialState = {
-  //   state,
-  status: "delete this",
+  state,
 };
 
-export default function languagesReducer(state = initialState, action) {
+export default function languageReducer(state = initialState, action) {
   switch (action.type) {
     case "REQUEST_NEW_LANGUAGE": {
       return {

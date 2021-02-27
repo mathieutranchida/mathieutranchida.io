@@ -1,30 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 import { TXT } from "../../../globalStyles/constants";
 import SocialMedia from "../reusables/socialMediaWhite";
 
 const Text = () => {
+  const bio = useSelector(
+    (state) => state.languageReducer.state && state.languageReducer.state.bio
+  );
+
   return (
     <>
       <Wrapper>
-        <Paragraph>
-          Passionnate about new technologies and digital content creation. I’m a
-          young professional ready to put my skills to work. Over the years, I
-          have developped strong skills in photography, design, video
-          production, and web development. After completing a Full-Stack Web
-          Development Diploma, I now have a full-scope understanding of the
-          development process, and I am more passionate than ever about frontend
-          development.
-        </Paragraph>
-        <Paragraph>
-          Here, you will find the collection of my best work under different
-          categories: Web Development, Photography, and Design.
-        </Paragraph>
-        <Paragraph>
-          Feel free to contact me for work, fun, or any other inquiries you
-          might have!
-        </Paragraph>
+        {bio.map((paragraph) => {
+          return <Paragraph key={paragraph}>{paragraph}</Paragraph>;
+        })}
         <LogoDiv>
           <SocialMedia />
         </LogoDiv>

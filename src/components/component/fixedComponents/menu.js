@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { Link, scroller } from "react-scroll";
+import { useSelector } from "react-redux";
 
 import { TXT } from "../../../globalStyles/constants";
 
 const Menu = () => {
+  const menu = useSelector(
+    (state) => state.languageReducer.state && state.languageReducer.state.menu
+  );
+
   return (
     <>
       <Wrapper>
@@ -29,7 +34,7 @@ const Menu = () => {
               }
             }}
           >
-            Web Development Portfolio
+            {menu.bigScreenMenu[0]}
           </NavLink>
           <NavLink
             activeClass="active"
@@ -51,7 +56,7 @@ const Menu = () => {
               }
             }}
           >
-            Photography Portfolio
+            {menu.bigScreenMenu[1]}
           </NavLink>
           <NavLink
             activeClass="active"
@@ -73,7 +78,7 @@ const Menu = () => {
               }
             }}
           >
-            Design Portfolio
+            {menu.bigScreenMenu[2]}
           </NavLink>
           <NavLink
             activeClass="active"
@@ -95,7 +100,7 @@ const Menu = () => {
               }
             }}
           >
-            Contact
+            {menu.bigScreenMenu[3]}
           </NavLink>
         </BigScreen>
         <SmallScreen>
@@ -119,7 +124,7 @@ const Menu = () => {
               }
             }}
           >
-            Web Development
+            {menu.smallScreenMenu[0]}
           </NavLink>
           <NavLink
             activeClass="active"
@@ -141,7 +146,7 @@ const Menu = () => {
               }
             }}
           >
-            Photography
+            {menu.smallScreenMenu[1]}
           </NavLink>
           <NavLink
             activeClass="active"
@@ -163,7 +168,7 @@ const Menu = () => {
               }
             }}
           >
-            Design
+            {menu.smallScreenMenu[2]}
           </NavLink>
           <NavLink
             activeClass="active"
@@ -185,7 +190,7 @@ const Menu = () => {
               }
             }}
           >
-            Contact
+            {menu.smallScreenMenu[3]}
           </NavLink>
         </SmallScreen>
       </Wrapper>
