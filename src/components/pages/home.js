@@ -11,7 +11,7 @@ import Photography from "../component/photography/index";
 import Design from "../component/design/index";
 import Contact from "../component/contact/index";
 import Menu from "../component/fixedComponents/menu";
-import HelpBtn from "../component/helpBtn/index";
+import HelpBtn from "../component/bottomCornerButton/index";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,9 +52,11 @@ const Home = () => {
     gsap.to(helpRef, {
       duration: 1,
       opacity: 1,
-      ease: "none",
+      ease: "ease",
       scrollTrigger: {
-        start: "top+=100 top",
+        start: "top+=150 top",
+        end: "top+=350 top",
+        scrub: true,
       },
     });
   });
