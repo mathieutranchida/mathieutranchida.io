@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
 import { scroller } from "react-scroll";
+import { useSelector } from "react-redux";
 
 import { IoHelp } from "react-icons/io5";
 import { BACKGROUND } from "../../../globalStyles/constants";
@@ -53,6 +54,10 @@ function enableScroll() {
 }
 
 const Help = () => {
+  const text = useSelector(
+    (state) => state.languageReducer.state && state.languageReducer.state.help
+  );
+
   let modalRef = useRef(null);
 
   const openModal = () => {
@@ -97,9 +102,7 @@ const Help = () => {
             src="https://res.cloudinary.com/dldqebddc/image/upload/v1614371353/mathieutranchida.io/Others/arrowLeft_xhhpwc.png"
             alt="arrow-left"
           />
-          <Info>
-            Use the arrows to go through my projects in each sections.
-          </Info>
+          <Info>{text}</Info>
         </Modal>
       </div>
     </>
