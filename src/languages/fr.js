@@ -3,7 +3,7 @@ export const fr = {
   bio: [
     "Développeur Front-End passionné par les nouvelles technologies et la création de contenu numérique.",
     "Au fil des années, j'ai développé de solides compétences en développement web, en photographie et en design graphique. Après avoir obtenu un diplôme de développement Web Full-Stack, j'ai acquis une compréhension globale du processus de développement et le développement frontend me passionne plus que jamais.",
-    "Ici, vous trouverez trois collections de mes meilleurs travaux sous différentes catégories: Développement Web, Photographie et Design. Utilisez les flèches pour parcourir mes projets dans chaque section.",
+    "Ici, vous trouverez trois collections de mes meilleurs travaux sous différentes catégories: Développement Web, Photographie et Design.",
   ],
   webDevelopment: {
     title: "Développement web",

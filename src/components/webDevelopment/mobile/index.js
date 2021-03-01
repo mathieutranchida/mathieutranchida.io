@@ -153,7 +153,7 @@ const Link = styled.a`
   text-decoration: none;
   cursor: pointer;
   font-weight: 600;
-  color: ${TXT.color};
+  color: ${TXT.colorMobile};
 `;
 
 export default MobileWebDev;

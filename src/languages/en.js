@@ -3,7 +3,7 @@ export const en = {
   bio: [
     "Front-End developer passionate about new technologies and digital content creation.",
     "Over the years, I have developed strong skills in web development, photography, and graphic design. After completing a Full-Stack Web Development Diploma, I have acquired a full-scope understanding of the development process, and I am more passionate than ever about frontend development.",
-    "Here, you will find the collection of my best work under different categories: Web Development, Photography, and Design. Use the arrows to go through my projects in each section.",
+    "Here, you will find the collection of my best work under different categories: Web Development, Photography, and Design.",
   ],
   webDevelopment: {
     title: "Web development",

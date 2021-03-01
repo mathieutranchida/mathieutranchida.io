@@ -53,6 +53,11 @@ const A = styled.a`
   align-items: center;
   height: 25px;
   width: 25px;
+  opacity: 0.5;
+  transition: 300ms ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 const GitHub = styled(FiGithub)`

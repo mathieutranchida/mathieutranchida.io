@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   color: ${TXT.color};
   user-select: none;
   letter-spacing: -1px;
-  z-index: 10000;
+  z-index: 998;
 `;
 
 export default FakePath;
