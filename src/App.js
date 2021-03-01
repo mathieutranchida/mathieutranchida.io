@@ -22,9 +22,9 @@ const App = () => {
           <div>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/web-development" component={WebDevelopment} />
-              <Route path="/photography" component={Photography} />
-              <Route path="/design" component={Design} />
+              <Route exact path="/web-development" component={WebDevelopment} />
+              <Route exact path="/photography" component={Photography} />
+              <Route exact path="/design" component={Design} />
             </Switch>
           </div>
         </ScrollToTop>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import ReactPlayer from "react-player/youtube";
 
-import { TXT, BACKGROUND } from "../../../globalStyles/constants";
+import { TXT, BACKGROUND, BOX_SHADOW } from "../../../globalStyles/constants";
 import Logo from "../../fixedComponents/logoMathieuMobile";
 import Footer from "../../fixedComponents/footerMobile";
 
@@ -65,7 +65,7 @@ const MobileWebDev = () => {
 };
 
 const MainWrapper = styled.div`
-  background-color: rgb(${BACKGROUND.home});
+  background-color: rgb(${BACKGROUND.homeMobile});
   min-height: 100vh;
   padding-bottom: 25px;
 `;
@@ -113,7 +113,7 @@ const ListItem = styled.div`
 const TextWrapper = styled.div`
   width: 100%;
   z-index: 1;
-  color: ${TXT.color};
+  color: ${TXT.colorMobile};
   font-weight: 300;
 `;
 
@@ -133,6 +133,7 @@ const VideoWrapper = styled.div`
 const VideoDiv = styled.div`
   height: 50vw;
   width: 80vw;
+  box-shadow: ${BOX_SHADOW.boxShadow1};
 `;
 
 const TextParagraph = styled.p`

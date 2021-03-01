@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
-import { TXT, DIMENSIONS } from "../../../globalStyles/constants";
+import { TXT, DIMENSIONS, BOX_SHADOW } from "../../../globalStyles/constants";
 
 const DesktopDesign = () => {
   const slides = useSelector(
@@ -100,6 +100,7 @@ const Image = styled.img`
   max-width: 50vw;
   max-height: 75vh;
   object-fit: contain;
+  box-shadow: ${BOX_SHADOW.boxShadow1};
 `;
 
 export default DesktopDesign;

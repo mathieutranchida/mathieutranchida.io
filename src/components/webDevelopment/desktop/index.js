@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import ReactPlayer from "react-player/youtube";
 
-import { TXT, DIMENSIONS } from "../../../globalStyles/constants";
+import { TXT, DIMENSIONS, BOX_SHADOW } from "../../../globalStyles/constants";
 
 const DesktopWebDev = () => {
   const slides = useSelector(
@@ -122,6 +122,7 @@ const VideoWrapper = styled.div`
 const VideoDiv = styled.div`
   height: ${DIMENSIONS.videoHeight};
   width: ${DIMENSIONS.videoWidth};
+  box-shadow: ${BOX_SHADOW.boxShadow1};
 `;
 
 export default DesktopWebDev;

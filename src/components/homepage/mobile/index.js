@@ -20,7 +20,7 @@ const HomeMobile = () => {
 };
 
 const Wrapper = styled.div`
-  background-color: rgb(${BACKGROUND.home});
+  background-color: rgb(${BACKGROUND.homeMobile});
 `;
 
 export default HomeMobile;

@@ -9,13 +9,20 @@ export const DIMENSIONS = {
 
 export const BACKGROUND = {
   home: "160, 173, 171",
-  homeDarker: "140, 153, 151",
+  // home: "15,15,15",
+  homeMobile: "250,250,250",
+  homeDarker: "15,15,15",
   menuButtonBackground: "255, 255, 255",
-  menuBackground: "5, 5, 5",
+  menuBackground: "15, 15, 15",
+};
+
+export const BOX_SHADOW = {
+  boxShadow1: "0px 0px 15px 3px rgba(0, 0, 0, 0.15)",
 };
 
 export const TXT = {
   color: "white",
+  colorMobile: "15, 15, 15",
   width: DIMENSIONS.leftColumnWidth,
   marginWide: "11vh 6vw 0px 7vw",
   marginSmall: "100px 6vw 0px 7vw",

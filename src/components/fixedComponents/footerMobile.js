@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import SocialMedia from "./socialMediaWhite";
+import SocialMedia from "./socialMediaBlack";
 import { TXT } from "../../globalStyles/constants";
 
 const Text = () => {
@@ -28,7 +28,7 @@ const Copyright = styled.div`
   font-size: 8pt;
   text-align: center;
   margin-top: 15px;
-  color: ${TXT.color};
+  color: ${TXT.colorMobile};
 `;
 
 export default Text;

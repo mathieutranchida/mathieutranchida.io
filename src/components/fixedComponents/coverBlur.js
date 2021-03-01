@@ -53,7 +53,7 @@ const CoverMain = styled.div`
 
 const CoverBottom = styled.div`
   width: ${DIMENSIONS.leftColumnWidth};
-  height: 75px;
+  height: 65px;
   position: fixed;
   bottom: 0px;
   left: 0;
@@ -63,9 +63,9 @@ const CoverBottom = styled.div`
 
 const CoverBottomBlur = styled.div`
   width: ${DIMENSIONS.leftColumnWidth};
-  height: 100px;
+  height: 50px;
   position: fixed;
-  bottom: 75px;
+  bottom: 65px;
   left: 0;
   z-index: 2;
   background: linear-gradient(

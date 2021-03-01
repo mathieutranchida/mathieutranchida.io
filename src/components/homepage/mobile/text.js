@@ -23,7 +23,7 @@ const Text = () => {
 };
 
 const Wrapper = styled.div`
-  color: ${TXT.color};
+  color: ${TXT.colorMobile};
   padding: 35px 50px 25px 50px;
 `;
 

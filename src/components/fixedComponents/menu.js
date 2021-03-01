@@ -19,6 +19,7 @@ const Menu = () => {
   let hamburgerBar3 = useRef(null);
   let menuBackground = useRef(null);
   let languageSelector = useRef(null);
+  let menuItems = useRef(null);
 
   function openMenu() {
     setMenuIsOpen(true);
@@ -48,6 +49,19 @@ const Menu = () => {
       ease: "power2.out",
       x: -70,
     });
+    gsap.fromTo(
+      menuItems,
+      {
+        opacity: 0,
+        y: -25,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power1.out",
+      }
+    );
   }
 
   function closeMenu() {
@@ -129,8 +143,12 @@ const Menu = () => {
         >
           <LanguageSwitcher />
         </LanguageSelectorPosition>
-        <MenuPosition>
-          <Link to="/" onClick={closeMenu}>
+        <MenuPosition
+          ref={(e) => {
+            menuItems = e;
+          }}
+        >
+          <Link exact to="/" onClick={closeMenu}>
             {menu[0]}
           </Link>
           <Link to="/web-development" onClick={closeMenu}>
@@ -211,6 +229,13 @@ const Link = styled(NavLink)`
   margin: 6px;
   transition: 300ms ease-in-out;
   text-transform: uppercase;
+  opacity: 0.4;
+  &:hover {
+    opacity: 1;
+  }
+  &.active {
+    opacity: 1;
+  }
 `;
 
 export default Menu;
